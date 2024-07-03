@@ -145,7 +145,7 @@ const MontyHallGame = () => {
 
   return (
     <div className="p-4 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">文藻美語暑期班程式班：三門問題</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">文藻美語程式班：三門問題</h1>
       
       <div className="lg:flex lg:flex-col lg:items-center">
         <div className="lg:w-full mb-8">
