@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/monty-hall-game/static/css/main.884ac0ca.css",
-    "main.js": "/monty-hall-game/static/js/main.e1879c1c.js",
-    "static/js/453.c91f1752.chunk.js": "/monty-hall-game/static/js/453.c91f1752.chunk.js",
-    "static/media/logo.svg": "/monty-hall-game/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/monty-hall-game/static/css/main.ba8b0b79.css",
+    "main.js": "/monty-hall-game/static/js/main.3bb683d0.js",
+    "static/js/453.dd04820b.chunk.js": "/monty-hall-game/static/js/453.dd04820b.chunk.js",
     "index.html": "/monty-hall-game/index.html",
-    "main.884ac0ca.css.map": "/monty-hall-game/static/css/main.884ac0ca.css.map",
-    "main.e1879c1c.js.map": "/monty-hall-game/static/js/main.e1879c1c.js.map",
-    "453.c91f1752.chunk.js.map": "/monty-hall-game/static/js/453.c91f1752.chunk.js.map"
+    "main.ba8b0b79.css.map": "/monty-hall-game/static/css/main.ba8b0b79.css.map",
+    "main.3bb683d0.js.map": "/monty-hall-game/static/js/main.3bb683d0.js.map",
+    "453.dd04820b.chunk.js.map": "/monty-hall-game/static/js/453.dd04820b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.884ac0ca.css",
-    "static/js/main.e1879c1c.js"
+    "static/css/main.ba8b0b79.css",
+    "static/js/main.3bb683d0.js"
   ]
 }
