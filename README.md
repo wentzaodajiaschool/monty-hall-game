@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# 三門問題模擬器
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+這是一個互動式的三門問題模擬器,使用 React 開發。它不僅允許用戶體驗經典的三門問題遊戲,還提供了大規模模擬功能,以直觀地展示換門策略的統計優勢。
 
-## Available Scripts
+## 特色
 
-In the project directory, you can run:
+1. **互動式遊戲**: 用戶可以親自體驗三門問題,選擇門並決定是否換門。
+2. **大規模模擬**: 可以進行大量模擬,快速獲得統計結果。
+3. **視覺化統計**: 使用柱狀圖和圓餅圖直觀地展示模擬結果。
+4. **響應式設計**: 適配不同尺寸的屏幕,在桌面和移動設備上都有良好的體驗。
 
-### `npm start`
+## 如何使用
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **玩遊戲**:
+   - 點擊三個門中的一個進行選擇。
+   - 系統會打開一個沒有獎品的門。
+   - 選擇是否要換門。
+   - 查看結果。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. **運行模擬**:
+   - 在輸入框中輸入想要模擬的次數。
+   - 點擊"執行模擬"按鈕。
+   - 觀察模擬進度和實時更新的統計數據。
+   - 查看模擬完成後的圖表,瞭解換門策略的效果。
