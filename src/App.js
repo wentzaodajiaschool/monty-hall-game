@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 
 const Door = ({ number, isSelected, isRevealed, hasPrize, onClick }) => (
   <div
-    className={`w-32 h-48 border-4 rounded-t-lg cursor-pointer transition-all duration-300 ${
+    className={`w-24 h-36 lg:w-32 lg:h-48 border-4 rounded-t-lg cursor-pointer transition-all duration-300 ${
       isSelected ? 'border-blue-500' : 'border-yellow-700'
     } ${
       isRevealed
@@ -19,12 +19,12 @@ const Door = ({ number, isSelected, isRevealed, hasPrize, onClick }) => (
   >
     {!isRevealed && (
       <div className="h-full flex items-center justify-center">
-        <span className="text-4xl font-bold text-yellow-100">{number}</span>
+        <span className="text-3xl lg:text-4xl font-bold text-yellow-100">{number}</span>
       </div>
     )}
     {isRevealed && hasPrize && (
       <div className="h-full flex items-center justify-center">
-        <Car size={48} className="text-green-600" />
+        <Car size={32} className="lg:w-12 lg:h-12 text-green-600" />
       </div>
     )}
   </div>
@@ -145,12 +145,12 @@ const MontyHallGame = () => {
 
   return (
     <div className="p-4 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">三門問題</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">文藻美語暑期班程式班：三門問題</h1>
       
-      <div className="lg:flex lg:space-x-8">
-        <div className="lg:w-1/3 mb-8">
-          <div className="bg-gray-100 p-4 rounded-lg">
-            <div className="flex justify-between mb-4">
+      <div className="lg:flex lg:flex-col lg:items-center">
+        <div className="lg:w-full mb-8">
+          <div className="bg-gray-100 p-6 rounded-lg">
+            <div className="flex justify-center space-x-8 mb-4">
               {[0, 1, 2].map((doorIndex) => (
                 <Door
                   key={doorIndex}
@@ -162,7 +162,7 @@ const MontyHallGame = () => {
                 />
               ))}
             </div>
-            <div className="mt-4">
+            <div className="mt-4 text-center">
               {gameState === 'initial' && <p className="text-lg">請選擇一扇門</p>}
               {gameState === 'doorSelected' && (
                 <div>
@@ -181,73 +181,77 @@ const MontyHallGame = () => {
           </div>
         </div>
 
-        <div className="lg:w-2/3">
-          <div className="bg-gray-100 p-4 rounded-lg mb-8">
-            <h2 className="text-2xl font-semibold mb-4">模擬器</h2>
-            <div className="mb-4 flex items-center">
-              <Input
-                type="number"
-                value={simulations}
-                onChange={(e) => setSimulations(parseInt(e.target.value))}
-                className="mr-2"
-                placeholder="模擬次數"
-              />
-              <Button onClick={runSimulation} disabled={isSimulating}>
-                {isSimulating ? '模擬中...' : '執行模擬'}
-              </Button>
-            </div>
-            {isSimulating && (
-              <div className="mb-4">
-                <p>進度: {currentSimulation} / {simulations}</p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                  <div className="bg-blue-600 h-2.5 rounded-full" style={{width: `${(currentSimulation / simulations) * 100}%`}}></div>
-                </div>
-                <p className="mt-2">上次模擬結果: {lastSimulationResult}</p>
+        <div className="lg:w-full lg:flex lg:space-x-4">
+          <div className="lg:w-1/2 mb-8">
+            <div className="bg-gray-100 p-4 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-4">模擬器</h2>
+              <div className="mb-4 flex items-center">
+                <Input
+                  type="number"
+                  value={simulations}
+                  onChange={(e) => setSimulations(parseInt(e.target.value))}
+                  className="mr-2"
+                  placeholder="模擬次數"
+                />
+                <Button onClick={runSimulation} disabled={isSimulating}>
+                  {isSimulating ? '模擬中...' : '執行模擬'}
+                </Button>
               </div>
-            )}
-            <div>
-              <p>換門獲勝: {switchWins} ({((switchWins / Math.max(currentSimulation, 1)) * 100).toFixed(2)}%)</p>
-              <p>不換獲勝: {stayWins} ({((stayWins / Math.max(currentSimulation, 1)) * 100).toFixed(2)}%)</p>
+              {isSimulating && (
+                <div className="mb-4">
+                  <p>進度: {currentSimulation} / {simulations}</p>
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div className="bg-blue-600 h-2.5 rounded-full" style={{width: `${(currentSimulation / simulations) * 100}%`}}></div>
+                  </div>
+                  <p className="mt-2">上次模擬結果: {lastSimulationResult}</p>
+                </div>
+              )}
+              <div>
+                <p>換門獲勝: {switchWins} ({((switchWins / Math.max(currentSimulation, 1)) * 100).toFixed(2)}%)</p>
+                <p>不換獲勝: {stayWins} ({((stayWins / Math.max(currentSimulation, 1)) * 100).toFixed(2)}%)</p>
+              </div>
             </div>
           </div>
 
-          <div className="bg-gray-100 p-4 rounded-lg mb-8">
-            <h2 className="text-2xl font-semibold mb-4">模擬結果統計</h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={barChartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="獲勝" fill="#8884d8" />
-                <Bar dataKey="失敗" fill="#82ca9d" />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          <div className="lg:w-1/2 mb-8">
+            <div className="bg-gray-100 p-4 rounded-lg mb-4">
+              <h2 className="text-2xl font-semibold mb-4">模擬結果統計</h2>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={barChartData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="獲勝" fill="#8884d8" />
+                  <Bar dataKey="失敗" fill="#82ca9d" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
 
-          <div className="bg-gray-100 p-4 rounded-lg mb-8">
-            <h2 className="text-2xl font-semibold mb-4">換門的獲獎可能性</h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={switchPieChartData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(2)}%`}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {switchPieChartData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
+            <div className="bg-gray-100 p-4 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-4">換門的獲獎可能性</h2>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={switchPieChartData}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(2)}%`}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {switchPieChartData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
       </div>
